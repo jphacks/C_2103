@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>朝から起きましょう</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="header">朝時計</div>
+    <div>
+      <video id="video"></video>
+    </div>
+    <script>
+      const video = document.getElementById("video")
+      navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false,
+      }).then(stream => {
+          video.srcObject = stream;
+          video.play()
+      }).catch(e => {
+        console.log(e)
+      })
+  </script> 
+  </body>
+
+</html>
