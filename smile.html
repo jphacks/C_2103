@@ -4,8 +4,24 @@
     <meta charset="utf-8">
     <title>朝から起きましょう</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+      function updateClock() {
+        var now = new Date();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        if ( hour < 10 ) hour = "0" + hour;
+        if ( minute < 10 ) minute = "0" + minute;
+        if ( second < 10 ) second = "0" + second;
+        document.getElementById('myClock').innerHTML = hour+":"+minute+":"+second;
+      }
+      function start() {
+        setInterval("updateClock();", 1000);
+        updateClock();
+      }
+    </script>
   </head>
-  <body>
+  <body onload="start();">
     <div class="header">SMILE$CLOCK</div>
     <div align="center">
       <video id="video"></video>
@@ -22,9 +38,13 @@
         console.log(e)
       })
     </script> 
-  <div class="btn-wrapper">
-    <a href="#" class="btn rensyuu">練習</a>
-  </div>
+    <div class="btn-wrapper">
+      <a href="#" class="btn rensyuu">練習</a>
+    </div>
+    <h1 align="center">現在時刻</h1>
+    <div id="myClock" align="center"
+        style="font:bold 40pt Times New Roman; color:#008888;">
+    </div>
   </body>
 
 </html>
