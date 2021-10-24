@@ -4,5 +4,34 @@
   height: 90px;
   font-size: 40px;
   text-align: center;
-  padding:20px 0;
+  padding:15px 0;
+}
+
+.btn:hover{
+  opacity: 1;
+}
+.rensyuu{
+  color: white;
+  background-color: #239b76;
+  font-size: 30px
+}
+.btn{
+  display: inline-block;
+  opacity: 0.8;
+  margin: 20px 0;
+}
+.btn-wrapper a{
+  text-decoration: none;
+}
+.btn-wrapper{
+  text-align: center;
+}
+
+.AI{
+  display: inline-block;
+}
+.AI video{
+  margin:0 auto;
+  height:100px;
+  left: 10px;
 }
