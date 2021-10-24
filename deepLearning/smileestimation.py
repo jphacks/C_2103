@@ -43,7 +43,7 @@ test_happy_dir = test_dir+ '/happy'
 '''
 
 # 平均ぐらいの画像サイズがいいらしい
-img_rows, img_cols = 256, 256
+img_rows, img_cols = 48, 48
 
 train_datagen = ImageDataGenerator(rescale=1.0 / 255,
                                    shear_range=0.2,
@@ -57,14 +57,18 @@ train_generator = train_datagen.flow_from_directory(directory=train_dir,
                                                     batch_size=256,
                                                     shuffle=True)
 
+"""train58021"""
+
 test_datagen = ImageDataGenerator(rescale=1.0 / 255)
 valid_generator = test_datagen.flow_from_directory(directory=valid_dir,
                                                    target_size=(img_rows, img_cols),
                                                    color_mode='rgb',
                                                    classes=classes,
                                                    class_mode='categorical',
-                                                   batch_size=32,
+                                                   batch_size=256,
                                                    shuffle=True)
+
+"""test17047"""
 
 model=Sequential()
 # 畳み込み層
@@ -80,8 +84,6 @@ model.add(MaxPooling2D((2,2)))
 model.add(Conv2D(128,(3,3),activation='relu'))
 model.add(MaxPooling2D((2,2)))
 
-model.add(Conv2D(128,(3,3),activation='relu'))
-model.add(MaxPooling2D((2,2)))
 # 全結合層
 model.add(Flatten())
 model.add(Dense(512,activation='relu'))
@@ -96,10 +98,10 @@ model.compile(loss='categorical_crossentropy',
               metrics=['acc'])
 
 history = model.fit(train_generator,
-                    steps_per_epoch=36,
+                    steps_per_epoch=226,
                     epochs=5,
-                    validation_data=validation_generator,
-                    validation_steps=25,
+                    validation_data=valid_generator,
+                    validation_steps=66,
                     verbose=1)
 
 hdf5_file = os.path.join(base_dir, 'mask-model_cnn.hdf5')
