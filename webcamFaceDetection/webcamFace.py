@@ -1,8 +1,14 @@
 import sys
 import cv2
 import numpy as np
-import tensorflow
-from PIL import Image
+import tensorflow as tf
+from keras.preprocessing import image
+from keras.applications.densenet import preprocess_input
+
+'''
+kerasのバージョン　2.6.0
+tensorflowのバージョン　2.6.0
+'''
 
 '''
 参考
@@ -19,19 +25,7 @@ cascade = cv2.CascadeClassifier('opencv/data/haarcascades/haarcascade_frontalfac
 eye_cascade = cv2.CascadeClassifier('opencv/data/haarcascades/haarcascade_eye_tree_eyeglasses.xml')
 
 # 学習済みモデルを読み込む
-model = tensorflow.keras.models.Model('/Users/shu/Desktop/C_2103/deepLearning/smileEstimation_4000/smileEstimation_4000data.hdf5')
-
-def cv2pil(image):
-    ''' OpenCV型 -> PIL型 '''
-    new_image = image.copy()
-    if new_image.ndim == 2:  # モノクロ
-        pass
-    elif new_image.shape[2] == 3:  # カラー
-        new_image = cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB)
-    elif new_image.shape[2] == 4:  # 透過
-        new_image = cv2.cvtColor(new_image, cv2.COLOR_BGRA2RGBA)
-    new_image = Image.fromarray(new_image)
-    return new_image
+model = tf.keras.models.load_model('model.hdf5')
 
 # Webカメラの映像に対して延々処理を繰り返すためwhile Trueで繰り返す。
 while True:
@@ -54,19 +48,34 @@ while True:
 
     if len(facerect) != 0:
         for x, y, w, h in facerect:
-            # 顔の部分(この顔の部分に対して目の検出をかける)
+            # 顔の部分
             face = frame[y: y + h, x: x + w]
 
             # 180x180に正規化
             reFace = cv2.resize(face, (180, 180))
 
-    cv2.imshow('frame', reFace)
+    #openCV型をImage型に整形
+    x = image.img_to_array(reFace)
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+
+    pred = model.predict(x)
+    prediction=1-np.float(pred[0][0])
+
+    ### デバッグ ###
+    cv2.imshow('frame', reFace)# 顔領域表示
+    print(prediction)
+    ### ここまで ###
+
+    if prediction < 0.4:
+        print("起きろ")
+    else:
+        print("笑った")
 
     # キー入力を1ms待って、k が27（ESC）だったらBreakする
     k = cv2.waitKey(1)
     if k == 27:
         break
-
 
 # キャプチャをリリースして、ウィンドウをすべて閉じる
 cap.release()
