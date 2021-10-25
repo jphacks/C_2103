@@ -2,49 +2,50 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>朝から起きましょう</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-      function updateClock() {
-        var now = new Date();
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-        var second = now.getSeconds();
-        if ( hour < 10 ) hour = "0" + hour;
-        if ( minute < 10 ) minute = "0" + minute;
-        if ( second < 10 ) second = "0" + second;
-        document.getElementById('myClock').innerHTML = hour+":"+minute+":"+second;
-      }
-      function start() {
-        setInterval("updateClock();", 1000);
-        updateClock();
-      }
-    </script>
+    <title>SmileClock</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
-  <body onload="start();">
+  <body>
     <div class="header">SMILE$CLOCK</div>
-    <div align="center">
+    <div class="CAM" align="center">
       <video id="video"></video>
     </div>
-    <script>
-      const video = document.getElementById("video")
-      navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: false,
-      }).then(stream => {
-          video.srcObject = stream;
-          video.play()
-      }).catch(e => {
-        console.log(e)
-      })
-    </script> 
+    <script type="text/javascript" src="js/camera.js"></script> 
     <div class="btn-wrapper">
+      <a href="#" class="btn stop">強制STOP</a>
       <a href="#" class="btn rensyuu">練習</a>
     </div>
-    <h1 align="center">現在時刻</h1>
-    <div id="myClock" align="center"
-        style="font:bold 40pt Times New Roman; color:#008888;">
+    <div class="contents">
+      <!-- 時計 -->
+      <div class="clock">
+        <p class="clock-date"></p><!-- 時計の日付テキスト -->
+        <p class="clock-time"></p><!-- 時計の時間テキスト -->
+    
+      </div>
     </div>
+    <script type="text/javascript" src="js/clock.js"></script>
+    <script type="text/javascript" src="js/timer.js"></script> 
+    
+    <form action="" method="">
+      <div id="jsalarmclock">
+      <div><div hidden class="leftcolumn">Current Time:</div> <span hidden id="jsalarm_ct" style="letter-spacing: 2px"></span></div>
+      <div><div class="leftcolumn">Set Alarm:
+
+      </div> <span><select class="menyu"></select> Hour</span> 
+      <span><select class="menyu"></select> Minutes</span> 
+      <span><select class="menyu"></select> Seconds</span></div>
+      <!--<div><div class="leftcolumn">Set Alarm Action:</div> <input type="text" id="musicloc" size="55" value="https://www.youtube.com/watch?v=Pr8zt67HreM /"> <span style="font: normal 11px Tahoma">*Location of page to launch</span></div>-->
+      <audio id="musicloc" preload loop><source src="https://res.cloudinary.com/code-kitchen/video/upload/v1555038697/posts/zk5sldkxuebny7mwlhh3.mp3"></audio>
+      <input type="submit" value="Set Alarm!" id="submitbutton" /> <input type="reset" value="reset" id="resetbutton" /> 
+      </div>
+      </form>
+      
+      
+      <script type="text/javascript">
+      
+      jsalarm.init()
+      
+      </script>
   </body>
 
 </html>

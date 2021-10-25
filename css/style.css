@@ -1,0 +1,125 @@
+/* Google Fonts 読み込み */
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+
+.header{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  background-color : #DDFFFF;
+  color: 	#ADFF2F;
+  height: 90px;
+  font-size: 40px;
+  text-align: center;
+  padding:15px 0;
+}
+.CAM{
+  background-color:#808080;
+}
+
+.btn:hover{
+  opacity: 1;
+}
+
+
+
+.btn{
+  display: inline-block;
+  opacity: 0.8;
+  margin: 20px 0;
+  font-family: 'Noto Serif JP', sans-serif;
+  color: white;
+  background-color: #239b76;
+  font-size: 30px
+}
+
+.btn-wrapper a{
+  text-decoration: none;
+}
+
+.btn-wrapper{
+  text-align: center;
+  background-color:#808080;
+}
+
+.AI{
+  display: inline-block;
+}
+
+.AI video{
+  margin:0 auto;
+  height:100px;
+  left: 10px;
+}
+
+/* 全体を囲うコンテナー */
+.contents {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color:#808080;
+}
+
+/* 時計の共通スタイル */
+.clock {
+  font-family: 'Share Tech Mono', monospace;
+  color: #daf6ff;
+  text-shadow: 0 0 20px #0aafe6;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* 日付のスタイル */
+.clock-date {
+  font-size: 25px;
+}
+
+/* 時間のスタイル */
+.clock-time {
+  font-size: 100px;
+}
+
+/* 文字サイズ調整 */
+@media screen and (max-width: 500px) {
+  .clock-date {
+    font-size: 20vw;
+  }
+  .clock-time {
+    font-size: 20vw;
+  }
+}
+
+/*　文字サイズなど*/
+#jsalarmclock{
+  font-family: Tahoma;
+  font-weight: bold;
+  font-size: 30px;
+  color: #66CCFF;
+  background-color:#808080
+  }
+  
+#jsalarmclock div{
+  margin-bottom: 0.8em;
+  }
+
+#jsalarmclock span{
+  margin-right: 5px;
+  }
+
+.leftcolumn select{
+  display: none;
+}
+
+#submitbutton{
+  font-size: 20px;
+}
+
+#resetbutton{
+  font-size:20px;
+}
+
+.menyu{
+  font-size:20px;
+}
