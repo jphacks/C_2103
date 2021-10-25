@@ -67,7 +67,7 @@ while True:
     print(prediction)
     ### ここまで ###
 
-    if prediction < 0.4:
+    if prediction < 0.5:
         print("起きろ")
     else:
         print("笑った")
