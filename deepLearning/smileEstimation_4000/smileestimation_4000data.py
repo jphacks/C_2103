@@ -66,9 +66,12 @@ model.add(MaxPooling2D((2,2)))
 model.add(Conv2D(128,(3,3),activation='relu'))
 model.add(MaxPooling2D((2,2)))
 
+model.add(Conv2D(128,(3,3),activation='relu'))
+model.add(MaxPooling2D((2,2)))
+
 # 全結合層
 model.add(Flatten())
-model.add(Dense(512,activation='relu'))
+model.add(Dense(128,activation='relu'))
 # 出力層
 model.add(Dense(nb_classes,activation='softmax'))
           
@@ -81,7 +84,7 @@ model.compile(loss='categorical_crossentropy',
 
 history = model.fit(train_generator,
                     steps_per_epoch=99,
-                    epochs=90,
+                    epochs=48,
                     validation_data=valid_generator,
                     validation_steps=25,
                     verbose=1)
