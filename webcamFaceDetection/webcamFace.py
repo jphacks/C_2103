@@ -70,7 +70,7 @@ while True:
     if prediction < 0.5:
         print("起きろ")
     else:
-        print("笑った")
+        print("笑ってる")
 
     # キー入力を1ms待って、k が27（ESC）だったらBreakする
     k = cv2.waitKey(1)
