@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SmileClock</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+  </head>
+  <body>
+
+    <div class="header">{{answer}}</div>
+    <div>{{answer}}</div>
+
+    <div class="CAM" align="center">
+      <video id="video"></video>
+    </div>
+    <script type="text/javascript" src="../static/js/camera.js"></script>
+    <div class="btn-wrapper">
+      <a href="#" class="btn stop">強制STOP</a>
+      <a href="#" class="btn rensyuu">練習</a>
+    </div>
+    <div class="contents">
+      <!-- 時計 -->
+      <div class="clock">
+        <p class="clock-date"></p><!-- 時計の日付テキスト -->
+        <p class="clock-time"></p><!-- 時計の時間テキスト -->
+
+      </div>
+    </div>
+    <script type="text/javascript" src="../static/js/clock.js"></script>
+    <script type="text/javascript" src="../static/js/timer.js"></script>
+
+    <form action="" method="">
+      <div id="jsalarmclock">
+      <div><div hidden class="leftcolumn">Current Time:</div> <span hidden id="jsalarm_ct" style="letter-spacing: 2px"></span></div>
+      <div><div class="leftcolumn">Set Alarm:
+
+      </div> <span><select class="menyu"></select> Hour</span>
+      <span><select class="menyu"></select> Minutes</span>
+      <span><select class="menyu"></select> Seconds</span></div>
+
+      <audio id="musicloc" preload loop><source src="https://res.cloudinary.com/code-kitchen/video/upload/v1555038697/posts/zk5sldkxuebny7mwlhh3.mp3"></audio>
+      <input type="submit" value="Set Alarm!" id="submitbutton" /> <input type="reset" value="reset" id="resetbutton" />
+      </div>
+      </form>
+
+
+      <script type="text/javascript">
+
+      jsalarm.init()
+
+      </script>
+  </body>
+
+</html>
