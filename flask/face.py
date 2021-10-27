@@ -62,5 +62,4 @@ def get_pred():
     pred = model.predict(x)
     prediction=1-np.float(pred[0][0])
 
-    print(prediction)
     return prediction
