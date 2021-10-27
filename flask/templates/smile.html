@@ -48,13 +48,12 @@
       </script>
 
       <div id = "prediction"></div>
-      {% for item in rows %}
-      <script>
-        var x = {{item|tojson}};
-        var elem = document.getElementById("prediction");
-        elem.innerHTML=document.write(x)
-      </script>
-      {% endfor %}
+        {% for item in rows %}
+        <script>
+          var x = {{item|tojson}};
+          var elem = document.getElementById("prediction");
+          elem.innerHTML=x
+        </script>
+        {% endfor %}
   </body>
-
 </html>
