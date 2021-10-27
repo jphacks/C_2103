@@ -7,10 +7,7 @@
   </head>
   <body>
 
-    <div class="header">smileAndClock</div>
-
-
-    <text src="{{ url_for('video_feed') }}">
+    <div class="header">SMILE&CLOCK</div>
 
 
 
@@ -53,6 +50,10 @@
       jsalarm.init()
 
       </script>
+      <div id="morningsmile">笑顔度</div>
+      {% for item in rows %}
+        <div>{{item}}</div>
+      {% endfor %}
   </body>
 
 </html>

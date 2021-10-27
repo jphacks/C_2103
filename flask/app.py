@@ -1,23 +1,32 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, redirect,stream_with_context
 from face import get_pred
+from time import sleep
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return render_template('smile.html')
+    return redirect('/stream')
 
-def prediction():
+def stream_template(template_name, **context):
+    app.update_template_context(context)
+    t = app.jinja_env.get_template(template_name)
+    rv = t.stream(context)
+    rv.disable_buffering()
+    return rv
+data = [0] 
+def generate():
     while True:
-        pred = str(get_pred())
-        yield (b'--frame\r\n'
-                  b'Content-type: text/html\n' + pred + b'\r\n')
+      pred = get_pred()
+      data[0]=pred
+      yield  str(data[0])
 
-@app.route('/video_feed')
-def video_feed():
-   #imgタグに埋め込まれるResponseオブジェクトを返す
-   return Response(prediction(), mimetype='multipart/x-mixed-replace; boundary=frame')
+@app.route('/stream')
+def stream_view():
+
+  rows = generate()
+  return Response(stream_with_context(stream_template('smile.html', rows=rows)))
 
 
 if __name__ == '__main__':
