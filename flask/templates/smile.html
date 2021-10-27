@@ -7,10 +7,7 @@
   </head>
   <body>
 
-    <div class="header">SMILE&CLOCK</div>
-
-
-
+    <div class="header">smileAndClock</div>
     <div class="CAM" align="center">
       <video id="video"></video>
     </div>
@@ -50,9 +47,14 @@
       jsalarm.init()
 
       </script>
-      <div id="morningsmile">笑顔度</div>
+
+      <div id = "test">unchi</div>
       {% for item in rows %}
-        <div>{{item}}</div>
+      <script>
+        var x = {{item|tojson}};
+        var elem = document.getElementById("test");
+        // elem.innerHTML=document.write(x)
+      </script>
       {% endfor %}
   </body>
 
