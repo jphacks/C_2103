@@ -38,28 +38,29 @@
       <span><select class="menyu"></select> Minutes</span>
       <span><select class="menyu"></select> Seconds</span></div>
 
-      <audio id="musicloc" preload loop><source src="https://res.cloudinary.com/code-kitchen/video/upload/v1555038697/posts/zk5sldkxuebny7mwlhh3.mp3"></audio>
+      <audio id="musicloc" preload loop><source src="https://res.cloudinary.com/code-kitchen/video/upload/v1555038697/posts/zk5sldkxuebny7mwlhh3.mp3"></audio> 
       <input type="submit" value="Set Alarm!" id="submitbutton" /> <input type="reset" value="reset" id="resetbutton" />
       </div>
       </form>
+    
 
       <script type="text/javascript">
       jsalarm.init()
       </script>
 
+
       <div id = "prediction"></div>
         {% for item in rows %}
         <script>
-          let cnt=0;
           var x = {{item|tojson}};
           var elem = document.getElementById("prediction");
-          elem.innerHTML=x
-          if(!bgm1.paused){
-            if(x>Number(0.9)){
-              cnt+=1;
-            }
-            if(cnt>10){
-              bgm1.paused();
+          elem.innerHTML=x;
+          if(flag){
+            if(parseFloat(x)<0.5){
+              count+=1;
+              if(count>10){
+                window.location.href = "https://www.youtube.com/watch?v=MEmvk3ZSs0M";
+              }
             }
           }
         </script>

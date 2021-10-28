@@ -1,3 +1,6 @@
+//var bgm1=document.getElementById("musicloc");
+var flag;
+var count;
 var jsalarm={
 	padfield:function(f){
 		return (f<10)? "0"+f : f
@@ -10,8 +13,10 @@ var jsalarm={
 		if (typeof this.hourwake!="undefined"){ //if alarm is set
 			if (this.ctref.title==(this.hourwake+":"+this.minutewake+":"+this.secondwake)){
 				clearInterval(jsalarm.timer)
-        		const bgm1=document.getElementById("musicloc");
+        		var bgm1=document.getElementById("musicloc");
         		bgm1.play();
+				flag=true;
+				count=0;
 			}
 		}
 	},
