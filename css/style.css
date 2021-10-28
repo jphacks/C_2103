@@ -123,3 +123,8 @@
 .menyu{
   font-size:20px;
 }
+
+#prediction{
+  font-size:20px;
+  background-color: #808080;
+}

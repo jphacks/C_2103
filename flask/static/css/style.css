@@ -4,16 +4,18 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
 
 .header{
-  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Share Tech Mono', monospace;
   background-color : #DDFFFF;
   color: 	#ADFF2F;
   height: 90px;
   font-size: 40px;
   text-align: center;
   padding:15px 0;
+  text-shadow: 0 1px 0 #ccc, 0 3px 0 #ccc, 0 4px 10px rgba(0, 0, 0, .2); 
+  
 }
 .CAM{
-  background-color:#808080;
+  background-color:#FFFFCC;
 }
 
 .btn:hover{
@@ -38,7 +40,7 @@
 
 .btn-wrapper{
   text-align: center;
-  background-color:#808080;
+  background-color:#FFFFCC;
 }
 
 .AI{
@@ -51,15 +53,15 @@
   left: 10px;
 }
 
-/* 全体を囲うコンテナー */
+/* 全体を囲うコンテナーheight: 100vh; */
 .contents {
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color:#808080;
+  background-color:#336666;
 }
 
 /* 時計の共通スタイル */
@@ -69,6 +71,7 @@
   text-shadow: 0 0 20px #0aafe6;
   line-height: 1.2;
   text-align: center;
+  
 }
 
 /* 日付のスタイル */
@@ -78,7 +81,7 @@
 
 /* 時間のスタイル */
 .clock-time {
-  font-size: 100px;
+  font-size: 50px;
 }
 
 /* 文字サイズ調整 */
@@ -87,7 +90,7 @@
     font-size: 20vw;
   }
   .clock-time {
-    font-size: 20vw;
+    font-size: 15vw;
   }
 }
 
@@ -97,7 +100,9 @@
   font-weight: bold;
   font-size: 30px;
   color: #66CCFF;
-  background-color:#808080
+  background-color:#336666;
+  position: absolute; top: 835px; 
+  position: absolute; left: 100px; 
   }
   
 #jsalarmclock div{
@@ -112,14 +117,62 @@
   display: none;
 }
 
+.leftcolumn{
+  display: none;
+  background-color: #808080;
+}
+
 #submitbutton{
   font-size: 20px;
+  position: relative; left: 100px; 
 }
 
 #resetbutton{
   font-size:20px;
+  position: relative; left: 220px; 
 }
 
 .menyu{
   font-size:20px;
+}
+
+#Smiledegree{
+  font-family: 'Share Tech Mono', monospace;
+  font-size:30px;
+  color: 	#3366FF;
+  background-color: #99FFFF;
+  text-shadow: 0 1px 0 #ccc, 0 3px 0 #ccc, 0 4px 10px rgba(0, 0, 0, .2); 
+  position: absolute; top: 620px; 
+  position: absolute; left: 200px; 
+}
+
+#prediction{
+  font-family: 'Share Tech Mono', monospace;
+  font-size:30px;
+  color: #3366FF;
+  background-color: #99FFFF;
+  position: absolute; top: 620px; 
+  position: absolute; left: 400px;
+  text-shadow: 0 1px 0 #ccc, 0 3px 0 #ccc, 0 4px 10px rgba(0, 0, 0, .2); 
+}
+
+.sun{
+  width: 60px;
+  height: 60px;
+  position: absolute; top: 10px; 
+  position: absolute; left: 100px; 
+}
+
+.smileface{
+  width: 60px;
+  height: 60px;
+  position: absolute; top: 30px; 
+  position: absolute; left: 560px; 
+}
+
+.faceclock{
+  width: 60px;
+  height: 60px;
+  position: absolute; top: 60px; 
+  position: absolute; left: 330px; 
 }
