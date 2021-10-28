@@ -56,10 +56,10 @@ def get_pred():
 
     #openCV型をImage型に整形
     x = image.img_to_array(reFace)
-    x = np.expand_dims(x, axis=0)
-    x = preprocess_input(x)
+    x = np.expand_dims(x, axis=0)  # 4次元に修正
+    x = preprocess_input(x)  # RGBに変更
 
     pred = model.predict(x)
-    prediction=1-np.float(pred[0][0])
-
+    prediction=pred[0][1]  # 笑顔度
+    print(prediction)
     return prediction
