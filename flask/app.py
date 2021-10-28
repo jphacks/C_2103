@@ -2,7 +2,6 @@
 from flask import Flask, stream_with_context, request, Response, flash
 from flask import render_template, redirect
 from face import get_pred
-import cv2
 
 app = Flask(__name__)
 
