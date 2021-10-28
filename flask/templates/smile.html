@@ -50,9 +50,18 @@
       <div id = "prediction"></div>
         {% for item in rows %}
         <script>
+          let cnt=0;
           var x = {{item|tojson}};
           var elem = document.getElementById("prediction");
           elem.innerHTML=x
+          if(!bgm1.paused){
+            if(x>Number(0.9)){
+              cnt+=1;
+            }
+            if(cnt>10){
+              bgm1.paused();
+            }
+          }
         </script>
         {% endfor %}
   </body>

@@ -10,9 +10,8 @@ var jsalarm={
 		if (typeof this.hourwake!="undefined"){ //if alarm is set
 			if (this.ctref.title==(this.hourwake+":"+this.minutewake+":"+this.secondwake)){
 				clearInterval(jsalarm.timer)
-        const bgm1=document.getElementById("musicloc");
-        bgm1.play();
-				//window.location=document.getElementById("musicloc").value
+        		const bgm1=document.getElementById("musicloc");
+        		bgm1.play();
 			}
 		}
 	},
