@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>SmileClock</title>
     <link rel="stylesheet" href="../static/css/style.css">
+    
   </head>
   <body>
     <div class="header">Smile&Clock</div>
@@ -50,9 +51,9 @@
       jsalarm.init()
       </script>
 
-
+      <div class="pos">
       <div id = "Smiledegree">笑顔度</div>
-      <div id = "prediction">真顔</div>
+      <div id = "prediction">真顔</div></div>
         {% for item in rows %}
         <script>
           var x = {{item|tojson}};
@@ -75,6 +76,7 @@
           }
         </script>
         {% endfor %}
+        
         <img class="sun" src="../dataset/image/太陽.png">
         <img class="smileface" src="../dataset/image/笑顔.png">
         <img class="faceclock" src="../dataset/image/時計.png">
