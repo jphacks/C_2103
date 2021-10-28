@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../static/css/style.css">
   </head>
   <body>
-    <div class="header">smileAndClock</div>
+    <div class="header">Smile&Clock</div>
 
     <div class="CAM" align="center">
       <video id="video"></video>
@@ -15,8 +15,10 @@
     <script type="text/javascript" src="../static/js/camera.js"></script>
 
     <div class="btn-wrapper">
+      <!--
       <a href="#" class="btn stop">強制STOP</a>
       <a href="#" class="btn rensyuu">練習</a>
+    -->
     </div>
 
     <div class="contents">
@@ -38,7 +40,7 @@
       <span><select class="menyu"></select> Minutes</span>
       <span><select class="menyu"></select> Seconds</span></div>
 
-      <audio id="musicloc" preload loop><source src="https://res.cloudinary.com/code-kitchen/video/upload/v1555038697/posts/zk5sldkxuebny7mwlhh3.mp3"></audio> 
+      <audio id="musicloc" preload loop><source src="https://res.cloudinary.com/code-kitchen/video/upload/v1555038697/posts/zk5sldkxuebny7mwlhh3.mp3"></audio>  
       <input type="submit" value="Set Alarm!" id="submitbutton" /> <input type="reset" value="reset" id="resetbutton" />
       </div>
       </form>
@@ -49,21 +51,32 @@
       </script>
 
 
-      <div id = "prediction"></div>
+      <div id = "Smiledegree">笑顔度</div>
+      <div id = "prediction">真顔</div>
         {% for item in rows %}
         <script>
           var x = {{item|tojson}};
+          var y="いい顔だね";
           var elem = document.getElementById("prediction");
-          elem.innerHTML=x;
+          if(parseFloat(x)>0.9){
+            y="いい笑顔だよ!!";
+          }
+          else{
+            y="もっと笑って!!";
+          }
+          elem.innerHTML=y;
           if(flag){
-            if(parseFloat(x)<0.5){
+            if(y=="いい笑顔だよ!!"){
               count+=1;
-              if(count>10){
-                window.location.href = "https://www.youtube.com/watch?v=MEmvk3ZSs0M";
+              if(count>50){
+                window.location.href = "https://jphacks.com/";
               }
             }
           }
         </script>
         {% endfor %}
+        <img class="sun" src="../dataset/image/太陽.png">
+        <img class="smileface" src="../dataset/image/笑顔.png">
+        <img class="faceclock" src="../dataset/image/時計.png">
   </body>
 </html>
