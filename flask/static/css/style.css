@@ -102,7 +102,7 @@
   color: #66CCFF;
   background-color:#336666;
   position: absolute; top: 835px; 
-  position: absolute; left: 100px; 
+  position: absolute; left: 500px; 
   }
   
 #jsalarmclock div{
@@ -124,12 +124,12 @@
 
 #submitbutton{
   font-size: 20px;
-  position: relative; left: 100px; 
+  position: relative; left: 80px; 
 }
 
 #resetbutton{
   font-size:20px;
-  position: relative; left: 220px; 
+  position: relative; left: 200px; 
 }
 
 .menyu{
@@ -143,7 +143,7 @@
   background-color: #99FFFF;
   text-shadow: 0 1px 0 #ccc, 0 3px 0 #ccc, 0 4px 10px rgba(0, 0, 0, .2); 
   position: absolute; top: 620px; 
-  position: absolute; left: 200px; 
+  position: absolute; left: 600px; 
 }
 
 #prediction{
@@ -152,27 +152,32 @@
   color: #3366FF;
   background-color: #99FFFF;
   position: absolute; top: 620px; 
-  position: absolute; left: 400px;
-  text-shadow: 0 1px 0 #ccc, 0 3px 0 #ccc, 0 4px 10px rgba(0, 0, 0, .2); 
+  position: absolute; left: 800px; 
+  text-shadow: 0 1px 0 #ccc, 0 3px 0 #ccc, 0 4px 10px rgba(0, 0, 0, .2);
+  
 }
+
+
 
 .sun{
   width: 60px;
   height: 60px;
+
   position: absolute; top: 10px; 
-  position: absolute; left: 100px; 
+  position: absolute; left: 330px; 
 }
 
 .smileface{
   width: 60px;
   height: 60px;
-  position: absolute; top: 30px; 
-  position: absolute; left: 560px; 
+  position: absolute; top: 60px; 
+  position: absolute; left: 660px; 
 }
 
 .faceclock{
+  object-fit: cover;
   width: 60px;
   height: 60px;
-  position: absolute; top: 60px; 
-  position: absolute; left: 330px; 
+  position: absolute; top: 30px; 
+  position: absolute; left: 1000px; 
 }
