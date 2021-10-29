@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, stream_with_context, request, Response, flash
+from flask import Flask, stream_with_context, Response
 from flask import render_template, redirect
 from face import get_pred
 

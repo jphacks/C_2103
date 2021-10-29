@@ -9,7 +9,6 @@ from keras.applications.densenet import preprocess_input
 kerasのバージョン　2.6.0
 tensorflowのバージョン　2.6.0
 '''
-
 '''
 参考
 https://qiita.com/watyanabe164/items/652617c7ad577daa38d0
@@ -29,16 +28,11 @@ eye_cascade = cv2.CascadeClassifier('dataset/opencv/data/haarcascades/haarcascad
 model = tf.keras.models.load_model('dataset/model.hdf5')
 
 def get_pred():
-    # VideoCaptureから1フレーム読み込む
     ret, frame = cap.read()
 
-    # そのままの大きさだと処理速度がきついのでリサイズ
     frame = cv2.resize(frame, (int(frame.shape[1]*0.7), int(frame.shape[0]*0.7)))
-
-    # 処理速度を高めるために画像をグレースケールに変換したものを用意
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-    # 顔検出 detecctMultiScale()は検出器のルール(cascade)に従って検出した結果をfacerectに返す関数
+    # 顔検出
     facerect = cascade.detectMultiScale(
         gray,
         scaleFactor=1.11,
