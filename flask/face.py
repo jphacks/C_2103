@@ -51,8 +51,8 @@ def get_pred():
             # 顔の部分
             face = frame[y: y + h, x: x + w]
 
-            # 180x180に正規化
-            reFace = cv2.resize(face, (180, 180))
+            # 224x224に正規化
+            reFace = cv2.resize(face, (224, 224))
 
     #openCV型をImage型に整形
     x = image.img_to_array(reFace)
