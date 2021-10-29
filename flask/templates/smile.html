@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>SmileClock</title>
     <link rel="stylesheet" href="../static/css/style.css">
-    
+
   </head>
   <body>
     <div class="header">Smile&Clock</div>
@@ -41,11 +41,11 @@
       <span><select class="menyu"></select> Minutes</span>
       <span><select class="menyu"></select> Seconds</span></div>
 
-      <audio id="musicloc" preload loop><source src="https://res.cloudinary.com/code-kitchen/video/upload/v1555038697/posts/zk5sldkxuebny7mwlhh3.mp3"></audio>  
+      <audio id="musicloc" preload loop><source src="https://res.cloudinary.com/code-kitchen/video/upload/v1555038697/posts/zk5sldkxuebny7mwlhh3.mp3"></audio>
       <input type="submit" value="Set Alarm!" id="submitbutton" /> <input type="reset" value="reset" id="resetbutton" />
       </div>
       </form>
-    
+
 
       <script type="text/javascript">
       jsalarm.init()
@@ -59,7 +59,7 @@
           var x = {{item|tojson}};
           var y="いい顔だね";
           var elem = document.getElementById("prediction");
-          if(parseFloat(x)>0.9){
+          if(parseFloat(x)>0.6){
             y="いい笑顔だよ!!";
           }
           else{
@@ -76,7 +76,7 @@
           }
         </script>
         {% endfor %}
-        
+
         <img class="sun" src="../dataset/image/太陽.png">
         <img class="smileface" src="../dataset/image/笑顔.png">
         <img class="faceclock" src="../dataset/image/時計.png">
