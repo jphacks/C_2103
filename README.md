@@ -45,3 +45,4 @@ webアプリだけでなくスマホアプリの開発を行いたい。また�
 * 物理ボタンではなく表情でアラームを止める機能
 * VGG16を用いたファインチューニングによる笑顔識別
 * デモ動画　https://drive.google.com/file/d/1DTmk1_zz8hHm1pyWOHUaQgUvPcVmQMGP/view?usp=sharing
+* web https://smileandclock.herokuapp.com/ 今の所表示できない・・・
