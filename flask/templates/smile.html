@@ -16,10 +16,6 @@
     <script type="text/javascript" src="../static/js/camera.js"></script>
 
     <div class="btn-wrapper">
-      <!--
-      <a href="#" class="btn stop">強制STOP</a>
-      <a href="#" class="btn rensyuu">練習</a>
-    -->
     </div>
 
     <div class="contents">
@@ -59,7 +55,7 @@
           var x = {{item|tojson}};
           var y="いい顔だね";
           var elem = document.getElementById("prediction");
-          if(parseFloat(x)>0.3){
+          if(parseFloat(x)>0.5){
             y="いい笑顔だよ!!";
           }
           else{
@@ -69,7 +65,7 @@
           if(flag){
             if(y=="いい笑顔だよ!!"){
               count+=1;
-              if(count>20){
+              if(count>30){
                 window.location.href = "https://www.nhk.or.jp/kishou-saigai/#tutorial";
               }
             }
